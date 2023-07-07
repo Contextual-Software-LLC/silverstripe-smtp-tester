@@ -12,7 +12,11 @@
 	{
 	  "name": "Joe Chenevey",
 	  "email": "joe@creativecodelabsllc.com"
-	}
+	},
+    {
+      "name": "Dave Collins",
+      "email": "dave.collins@contextualsoftware.com"
+    }
   ],
   "require": {
 	"silverstripe/framework": "^5",
