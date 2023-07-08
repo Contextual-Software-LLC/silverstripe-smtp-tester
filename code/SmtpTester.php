@@ -119,8 +119,9 @@ class SmtpTester extends LeftAndMain implements PermissionProvider {
         }
 
         try {
+            $status = true;
             $email = new Email($from,$to,$subject,$message);
-            $status = $email->send();
+            $email->send();
         } catch (Exception $e) {
             $status = false;
             $errorMessage = " Error Message: {$e->getMessage()}";
