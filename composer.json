@@ -21,5 +21,11 @@
   "require": {
 	"silverstripe/framework": "^5",
 	"silverstripe/cms": "^5"
+  },
+  "extra": {
+    "expose": [
+      "css",
+      "images"
+    ]
   }
 }
