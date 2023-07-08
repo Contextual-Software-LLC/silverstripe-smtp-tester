@@ -71,7 +71,7 @@ class SmtpTester extends LeftAndMain implements PermissionProvider {
         $siteName = SiteConfig::current_site_config()->Title;
         $memberEmail = Security::getCurrentUser()->Email;
 
-        $adminEmail = Config::inst()->get('Email', 'admin_email');
+        $adminEmail = Config::inst()->get('SilverStripe\Control\Email\Email', 'admin_email');
         $fieldsArr = array();
 
         if (!filter_var($adminEmail, FILTER_VALIDATE_EMAIL)) {
