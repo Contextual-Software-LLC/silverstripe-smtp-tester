@@ -1,4 +1,4 @@
-# SilverStripe 3 SMTP Tester
+# SilverStripe 5 SMTP Tester
 
 This module provides an easy way to test the SMTP configuration of your SilverStripe site from the admin area.
 
@@ -6,7 +6,7 @@ This module provides an easy way to test the SMTP configuration of your SilverSt
 
 ##### Using Composer
 ```html
-$ composer require creativecodelabs/silverstripe-smtp-tester
+$ composer require contextualsoftware/silverstripe-smtp-tester
 ```
 * Run `/dev/build?flush=1`
 
