@@ -18,7 +18,7 @@ use SilverStripe\View\Requirements;
 
 class SmtpTester extends LeftAndMain implements PermissionProvider {
     private static $menu_title = 'SMTP Tester';
-    private static $menu_icon = 'contextualsoftware/silverstripe-smtp-tester/images/icon-email.png';
+    private static $menu_icon = '/_resources/vendor/contextualsoftware/silverstripe-smtp-tester/images/icon-email.png';
     private static $url_segment = 'smtp-tester';
 
     private static $allowed_actions = array (
@@ -28,7 +28,7 @@ class SmtpTester extends LeftAndMain implements PermissionProvider {
     public function init() {
         parent::init();
 
-        Requirements::css('contextualsoftware/silverstripe-smtp-tester/css/smtp-tester.css');
+        Requirements::css('/_resources/vendor/contextualsoftware/silverstripe-smtp-tester/css/smtp-tester.css');
     }
 
     public function providePermissions() {
