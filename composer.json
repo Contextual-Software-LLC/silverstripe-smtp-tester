@@ -24,8 +24,7 @@
   },
   "extra": {
     "expose": [
-      "css",
-      "images"
+      "css"
     ]
   }
 }

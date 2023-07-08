@@ -18,7 +18,7 @@ use SilverStripe\View\Requirements;
 
 class SmtpTester extends LeftAndMain implements PermissionProvider {
     private static $menu_title = 'SMTP Tester';
-    private static $menu_icon = '/_resources/vendor/contextualsoftware/silverstripe-smtp-tester/images/icon-email.png';
+    private static $menu_icon_class = 'font-icon-p-mail';
     private static $url_segment = 'smtp-tester';
 
     private static $allowed_actions = array (
@@ -89,7 +89,9 @@ class SmtpTester extends LeftAndMain implements PermissionProvider {
 
         $fields = new FieldList($fieldsArr);
 
-        $sendTestEmailButton = FormAction::create('send_test_email', 'Send Test Email');
+        $sendTestEmailButton = FormAction::create('send_test_email', 'Send Test Email')
+            ->addExtraClass('btn-primary font-icon-rocket')
+            ->setUseButtonTag(true);
 
         $actions = new FieldList($sendTestEmailButton);
 
