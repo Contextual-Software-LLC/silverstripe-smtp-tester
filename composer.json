@@ -1,7 +1,7 @@
 {
   "name": "contextualsoftware/silverstripe-smtp-tester",
   "description": "Silverstripe SMTP Tester allows developers to test their site's SMTP configuration from the admin area.",
-  "type": "silverstripe-module",
+  "type": "silverstripe-vendormodule",
   "keywords": [
 	"silverstripe",
 	"smtp",

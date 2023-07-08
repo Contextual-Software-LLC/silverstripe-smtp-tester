@@ -1,5 +1,21 @@
 <?php
 
+use SilverStripe\Admin\LeftAndMain;
+use SilverStripe\Control\Director;
+use SilverStripe\Control\Email\Email;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\Form;
+use SilverStripe\Forms\FormAction;
+use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Security\Permission;
+use SilverStripe\Security\PermissionProvider;
+use SilverStripe\Security\Security;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\View\Requirements;
+
 class SmtpTester extends LeftAndMain implements PermissionProvider {
     private static $menu_title = 'SMTP Tester';
     private static $menu_icon = 'silverstripe-smtp-tester/images/icon-email.png';
@@ -38,14 +54,14 @@ class SmtpTester extends LeftAndMain implements PermissionProvider {
             $emailParts = explode("@",$member->Email);
 
             if (count($emailParts) == 1) {
-            	$domain = $emailParts[0];
-			} else {
-				$domain = $emailParts[1];
-			}
+                $domain = $emailParts[0];
+            } else {
+                $domain = $emailParts[1];
+            }
 
-			if (!in_array($domain,$userDomainWhitelist)) {
-				return false;
-			}
+            if (!in_array($domain,$userDomainWhitelist)) {
+                return false;
+            }
         }
 
         return Permission::check("CMS_ACCESS_SmtpTester");
@@ -53,7 +69,8 @@ class SmtpTester extends LeftAndMain implements PermissionProvider {
 
     public function SmtpTesterForm() {
         $siteName = SiteConfig::current_site_config()->Title;
-        $memberEmail = Member::currentUser()->Email;
+        $memberEmail = Security::getCurrentUser()->Email;
+
         $adminEmail = Config::inst()->get('Email', 'admin_email');
         $fieldsArr = array();
 
@@ -89,7 +106,7 @@ class SmtpTester extends LeftAndMain implements PermissionProvider {
 
     public function send_test_email($data, Form $form) {
         $siteName = SiteConfig::current_site_config()->Title;
-        $memberEmail = Member::currentUser()->Email;
+        $memberEmail = Security::getCurrentUser()->Email;
         $errorMessage = "";
 
         $to = $data['EmailTo'] && $data['EmailTo'] != "" ? $data['EmailTo'] : $memberEmail;
